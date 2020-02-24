@@ -1,6 +1,7 @@
 inputPath= 'resources\project\Root.type.ProjectData\input\';
-outputPath='resources\project\Root.type.ProjectData\output\adjacencyMatrixes\';
-inputDataSetName = 'data-starplus-04847-v7.mat';
+inputDataSetName = 'data-starplus-05710-v7.mat';
+starplusSubjectId = '05710';
+outputPath=strcat('resources\project\Root.type.ProjectData\output\adjacencyMatrixes\data-starplus-',starplusSubjectId,'-v7\');
 
 mat = dir(strcat(inputPath,'*.mat'));
 
@@ -24,7 +25,7 @@ while adjacencyMeasure < 0.9
     tmpM = correletionM;
     tmpM(tmpM < adjacencyMeasure) = 0;
     tmpM(tmpM >= adjacencyMeasure) = 1;
-    fileName = strcat(outputPath,'adjacency_matrix_with_adjacencyMeasure_',strrep(num2str(adjacencyMeasure),'.','_'),'.csv');
+    fileName = strcat(outputPath,'subject_',starplusSubjectId,'_adjacency_matrix_with_adjacencyMeasure_',strrep(num2str(adjacencyMeasure),'.','_'),'.csv');
     csvwrite(fileName,tmpM);
     disp(size(tmpM(tmpM ==1)));
     disp(fileName);
@@ -38,6 +39,6 @@ while adjacencyMeasure < 0.9
     adjacencyMeasure = adjacencyMeasure + 0.05;
 end
 
-xlswrite(strcat(outputPath,'info_table.xls'),filesInfoTabel);
+xlswrite(strcat(outputPath,'subject_',starplusSubjectId,'_info_table.xls'),filesInfoTabel);
 
 fclose('all');
