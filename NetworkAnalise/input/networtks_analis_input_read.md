@@ -1,0 +1,1 @@
+Here the adjacency matrices of the result fmri (the result of the transformation of the time series of the scan result) of empirical networks (to folder adjacencyMatrices)
