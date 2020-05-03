@@ -4,7 +4,7 @@ library(xlsx)
 library(poweRlaw)
 library(ggplot2)
 
-function.define_non_overlap_com_structure <- function(outputDirpath, inputDirPath, subjectName, listOfCsvFilesName){
+  network_analise.define_non_overlap_com_structure <- function(outputDirpath, inputDirPath, subjectName, listOfCsvFilesName){
   print("function.define_non_overlap_com_structure started")
   print(subjectName)  
   
@@ -43,15 +43,14 @@ function.define_non_overlap_com_structure <- function(outputDirpath, inputDirPat
     file.create(outExelFile)
     
     for(csvFileName in listOfCsvFilesName){
-      
-      Initial.matrix <- read.csv(file = paste(inputDirPath,subjectName,'/',csvFileName,sep = ""), header = FALSE)
+      Initial.matrix <- readr(file = paste(inputDirPath,subjectName,'/',csvFileName,sep = ""), header = FALSE)
       Initial.matrix[is.na(Initial.matrix)] <- 0
       matrix <- as.matrix(Initial.matrix)
       
       g <- simplify(graph_from_adjacency_matrix(matrix, mode="undirected", weighted=NULL, add.colnames = NULL, add.rownames = NA))
       
       outPutFileName <- gsub(".csv", "", gsub("_adjacency_matrix", "", csvFileName))
-      function.plot_degree_distribution(g, outPlotDirName, outPutFileName)
+      networks_analise.plot_degree_distribution(g, outPlotDirName, outPutFileName)
       
       if(!is.null(g) && is_simple(g)) {
         print("cluster_louvain")
@@ -95,7 +94,7 @@ function.define_non_overlap_com_structure <- function(outputDirpath, inputDirPat
 
 }
 
-function.plot_degree_distribution <- function(graph, basicOutputPlotsPath, plotFileName){
+network_analise.plot_degree_distribution <- function(graph, basicOutputPlotsPath, plotFileName){
   #degree distribution
   print("function.plot_degree_distribution(...)")
   outGraphDistDirPath <- paste(basicOutputPlotsPath, "/graph_degree_distribution", sep = "")
