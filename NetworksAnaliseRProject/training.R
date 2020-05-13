@@ -5,7 +5,7 @@ library(poweRlaw)
 library(ggplot2)
 source("custom_funtions.R")
 
-Initial.matrix <- read.csv(file = 'input/adjacencyMatrices/data-starplus-04799-v7/subject_04799_adjacency_matrix_with_adjacencyMeasure_0_1.csv', header = FALSE)
+Initial.matrix <- read.csv(file = 'input/empericalDataSource/adjacencyMatrices/data-starplus-04799-v7/subject_04799_adjacency_matrix_with_adjacencyMeasure_0_1.csv', header = FALSE)
 Initial.matrix[is.na(Initial.matrix)] <- 0
 matrix <- as.matrix(Initial.matrix)
 
