@@ -94,7 +94,6 @@ network_analise.define_non_overlap_com_structure <- function(outputDirpath, inpu
 
 }
 
-
 network_analise.plot_degree_distribution <- function(graph, basicOutputPlotsPath, plotFileName){
   #degree distribution
   print("function.plot_degree_distribution(...)")

@@ -103,7 +103,6 @@ attacks.target_attack_on_vertexs_max_bc <- function(outputDirpath, inputDirPath,
       print("create output exel file for statistic")
       outExelFile <- paste(outDirName, outPutFileName,"_target_attack_on_vertexs_max_bc_attacks_result.xlsx", sep="")
       file.create(outExelFile)
-
       #define DF for results
       statistic <- matrix( nrow = 0, ncol = 12)  
       colnames(statistic) <- c("V" ,"E", "v_deleted" ,"v_min_bc" ,"v_max_bc" ,"modularity_cl_louvail"  ,"cl_louvail_info"
